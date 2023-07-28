@@ -69,6 +69,15 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def h(n):
+        i = 1
+        count = 0
+        while i <= n:
+            if condition(n, i):
+                count += 1
+            i += 1
+        return count
+    return h
 
 
 def multiple(a, b):
@@ -80,6 +89,11 @@ def multiple(a, b):
     42
     """
     "*** YOUR CODE HERE ***"
+    i = max(a, b)
+    while i <= a * b:
+        if i % a == 0 and i % b == 0:
+            return i
+        i += 1
 
 
 def cycle(f1, f2, f3):
@@ -109,3 +123,17 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    def h(n):
+        def g(x):
+            i = 1
+            while i <= n:
+                if i % 3 == 1:
+                    x = f1(x)
+                elif i % 3 == 2:
+                    x = f2(x)
+                else:
+                    x = f3(x)
+                i += 1
+            return x
+        return g
+    return h
