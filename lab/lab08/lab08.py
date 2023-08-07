@@ -39,13 +39,13 @@ class Account:
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
         "*** YOUR CODE HERE ***"
-        self.num = 0
-        self.virtual_balance = self.balance
-        while self.virtual_balance < amount:
-            self.add = self.virtual_balance * self.interest
-            self.virtual_balance += self.add
-            self.num += 1
-        return self.num
+        num = 0
+        virtual_balance = self.balance
+        while virtual_balance < amount:
+            add = virtual_balance * self.interest
+            virtual_balance += add
+            num += 1
+        return num
 
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
